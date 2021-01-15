@@ -40,6 +40,10 @@ export default {
   text-align: center;
 }
 
+.give-your-vote{
+  font-size: 21px;
+}
+
 section{
   width: 100%;
 }
