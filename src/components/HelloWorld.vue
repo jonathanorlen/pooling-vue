@@ -5,7 +5,7 @@
         Silahkan Berikan Penilaian anda terhadap pelayanan anda
       </h3>
       <div class="emoticons">
-
+        <Vote/>
       </div>
     </section>
     <section class="finish">
@@ -15,8 +15,12 @@
 </template>
 
 <script>
+import Vote from './Vote';
 export default {
   name: 'HelloWorld',
+  components: {
+    Vote
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -38,5 +42,10 @@ export default {
 
 section{
   width: 100%;
+}
+
+.emoticons{
+  display: flex;
+  justify-content: center;
 }
 </style>
