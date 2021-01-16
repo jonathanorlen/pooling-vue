@@ -32,6 +32,17 @@ export default {
   },
   methods:{
        vote(e){
+               let voted = e.target.value
+               //   untuk menentukan button di match dengan nilai key apakah sama atau tidak
+               this.emoticonClick = e.target.value
+
+               //melakukan penyimpanan
+               this.store(e);
+
+               //Melakukan emit nilai melalui HelloWorld componennts
+               this.voteProp();
+       },
+       store(e){
             this.emoticonClick = e.target.value
             let voted = e.target.value
             let date = moment().format('YYYY-MM-DD')
@@ -44,8 +55,6 @@ export default {
             let json = JSON.stringify(data)
 
             localStorage.setItem(key, json)
-
-            this.voteProp();
        }
   },
   computed: {
