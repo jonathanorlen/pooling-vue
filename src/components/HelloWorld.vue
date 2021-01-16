@@ -57,6 +57,14 @@ section{
   width: 100%;
 }
 
+.fade-enter-active, .fade-leave-active{
+  transition: opacity 1s
+}
+
+.fade-enter, .fade-leave-to{
+  opacity: 0;
+}
+
 .emoticons{
   display: flex;
   justify-content: center;
