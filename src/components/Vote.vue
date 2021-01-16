@@ -5,6 +5,7 @@
           :id="emoticon"
           :value="emoticon"
           class="btn-emoticon"
+          :class = "{active: emoticon === emoticonClick}"
           @click="vote"
           :disabled="isDisabled"
           >
@@ -22,12 +23,14 @@ export default {
   data () {
     return {
          emoticons: ['very-bad', 'bad', 'oke', 'good','very-good'],
-         isDisabled: false
+         isDisabled: false,
+         emoticonClick : false
     }
   },
   methods:{
        vote(e){
             this.isDisabled = true
+            this.emoticonClick = e.target.value
             let voted = e.target.value
             let date = moment().format('YYYY-MM-DD')
             let key = moment().format('YYYYMMDDhhmmss')
@@ -68,6 +71,7 @@ export default {
      background-position: 0px -100px;
      }
 
+     #very-bad.active,
      #very-bad:active{
      background-position: 0px -200px;
      }
@@ -80,6 +84,7 @@ export default {
      background-position: 100px -100px;
      }
 
+     #bad.active,
      #bad:active{
      background-position: 100px -200px;
      }
@@ -92,6 +97,7 @@ export default {
      background-position: 200px -100px;
      }
 
+     #oke.active,
      #oke:active{
      background-position: 200px -200px;
      }
