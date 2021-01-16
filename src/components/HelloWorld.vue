@@ -9,7 +9,9 @@
       </div>
     </section>
     <section class="finish">
-      <transition name="fade">
+      <transition name="fade"
+        v-on:after-enter="resetVote"
+      >
         <h4 v-if="show">  Terimakasih telah memberi penilaian anda</h4>
       </transition>
     </section>
@@ -33,6 +35,9 @@ export default {
     voteFun(){
       this.show = true;
       console.log('chnage')
+    },
+    resetVote(){
+      this.show = false
     }
   }
 }
