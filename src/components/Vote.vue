@@ -6,6 +6,7 @@
           :value="emoticon"
           class="btn-emoticon"
           @click="vote"
+          :disabled="isDisabled"
           >
 
        </button>
@@ -20,11 +21,13 @@ export default {
   component: {},
   data () {
     return {
-         emoticons: ['very-bad', 'bad', 'oke', 'good','very-good']
+         emoticons: ['very-bad', 'bad', 'oke', 'good','very-good'],
+         isDisabled: false
     }
   },
   methods:{
        vote(e){
+            this.isDisabled = true
             let voted = e.target.value
             let date = moment().format('YYYY-MM-DD')
             let key = moment().format('YYYYMMDDhhmmss')
