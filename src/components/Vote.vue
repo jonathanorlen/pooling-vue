@@ -19,17 +19,19 @@ import moment from 'moment'
 
 export default {
   name: 'HelloWorld',
-  component: {},
+  props: {
+       voteProp: {
+            type: Function
+       }
+  },
   data () {
     return {
          emoticons: ['very-bad', 'bad', 'oke', 'good','very-good'],
-         isDisabled: false,
-         emoticonClick : false
+         emoticonClick : ''
     }
   },
   methods:{
        vote(e){
-            this.isDisabled = true
             this.emoticonClick = e.target.value
             let voted = e.target.value
             let date = moment().format('YYYY-MM-DD')
@@ -42,6 +44,13 @@ export default {
             let json = JSON.stringify(data)
 
             localStorage.setItem(key, json)
+
+            this.voteProp();
+       }
+  },
+  computed: {
+       isDisabled : function(){
+            return this.emoticonClick.length === 0 ? false : true
        }
   }
 }

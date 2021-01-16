@@ -5,11 +5,13 @@
         Silahkan Berikan Penilaian anda terhadap pelayanan anda
       </h3>
       <div class="emoticons">
-        <Vote/>
+        <Vote :voteProp="voteFun"/>
       </div>
     </section>
     <section class="finish">
-      Terimakasih telah memberi penilaian anda
+      <transition name="fade">
+        <h4 v-if="show">  Terimakasih telah memberi penilaian anda</h4>
+      </transition>
     </section>
   </div>
 </template>
@@ -23,7 +25,14 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      show: false
+    }
+  },
+  methods: {
+    voteFun(){
+      this.show = true;
+      console.log('chnage')
     }
   }
 }
