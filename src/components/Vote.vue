@@ -52,6 +52,11 @@ export default {
        isDisabled : function(){
             return this.emoticonClick.length === 0 ? false : true
        }
+  },
+  mounted() {
+       this.$root.$on('emitProsesDone', () => {
+            this.emoticonClick = ''
+       })
   }
 }
 </script>

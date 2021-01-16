@@ -37,7 +37,8 @@ export default {
       console.log('chnage')
     },
     resetVote(){
-      this.show = false
+      this.show = false;
+      this.$root.$emit('emitProsesDone', 'aaa')
     }
   }
 }
