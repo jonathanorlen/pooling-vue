@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Vote from './Vote';
+import Vote from './Vote'
 export default {
   name: 'HelloWorld',
   components: {

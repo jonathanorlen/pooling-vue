@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import moment from 'moment';
+import moment from 'moment'
 
 export default {
   name: 'HelloWorld',
@@ -26,9 +26,16 @@ export default {
   methods:{
        vote(e){
             let voted = e.target.value
-            localStorage.setItem('vote', voted)
             let date = moment().format('YYYY-MM-DD')
-            console.log(date)
+            let key = moment().format('YYYYMMDDhhmmss')
+            let data = {
+                 vote: voted,
+                 created_at: date
+            }
+
+            let json = JSON.stringify(data)
+
+            localStorage.setItem(key, json)
        }
   }
 }
